@@ -34,7 +34,7 @@ app.get('/getAll',(req,res)=>{
 
 //add data
 app.post('/adddata',(req,res)=>{    
-    var sql = 'INSERT into MOVIES (Movie_Name,Lead_Actor,Lead_Actress,Director,Year_of_Release) VALUES (UPPER(?),UPPER(?),UPPER(?),UPPER(?),UPPER(?))'
+    var sql = 'INSERT into MOVIES (Movie_Name,Lead_Actor,Lead_Actress,Director,Year_of_Release) VALUES (?,?,?,?,?)'
     var params= [req.body.mname,req.body.actorName,req.body.actressName,req.body.dname,req.body.year];
     db.run(sql,params,(err,result)=>{
         if(err){
